@@ -6,7 +6,7 @@
 #include <conio.h>
 #include "creature.h"
 #include "map.h"
-
+#include "game.h"
 
 #define GREEN 2
 #define CYAN 3
@@ -55,10 +55,8 @@ char readConsoleCharAt(int x,int y)  /// Function which reads character at speci
 
 int main()
 {
-	HWND console = GetConsoleWindow();
-	RECT ConsoleRect;
-	GetWindowRect(console, &ConsoleRect); 
-	MoveWindow(console, ConsoleRect.left, ConsoleRect.top, 1200, 800, TRUE);
+	Game game;
+	game.initialize();
 	//////////////////////////////////
 	char wasdkeyChar;
 	char ccc;

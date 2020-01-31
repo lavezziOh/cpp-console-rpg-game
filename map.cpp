@@ -1,9 +1,11 @@
 #include "map.h"
 #include <iostream>
 #include <cstdlib>
+#include "map.h"
 #include <windows.h>
 #include <string>
 #include <time.h> 
+#include "map.h" 
 void Map::CreateMap(int tilesX, int tilesY)
 {
 	std::string x[tilesX][tilesY];
