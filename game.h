@@ -3,7 +3,7 @@
 class Game
 {
 public:
-	 Game();
+	 game();
 	 void initialize();
 };
 

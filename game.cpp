@@ -1,6 +1,6 @@
 #include "game.h"
 #include <windows.h>
-Game::Game()
+Game::game()
 {
 	
 }
@@ -10,5 +10,6 @@ void Game::initialize()
 	HWND console = GetConsoleWindow();
 	RECT ConsoleRect;
 	GetWindowRect(console, &ConsoleRect); 
-	MoveWindow(console, ConsoleRect.left, ConsoleRect.top, 1200, 800, TRUE);
+	MoveWindow(console, 0, 0, 1000, 600, TRUE);
+	
 }

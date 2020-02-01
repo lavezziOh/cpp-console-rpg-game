@@ -7,6 +7,10 @@
 #include "creature.h"
 #include "map.h"
 #include "game.h"
+#include "test.h"
+
+#define MAPTILESWIDTH 30
+#define MAPTILESHEIGHT 20
 
 #define GREEN 2
 #define CYAN 3
@@ -57,25 +61,30 @@ int main()
 {
 	Game game;
 	game.initialize();
+	Test mytest;
+	
 	//////////////////////////////////
 	char wasdkeyChar;
 	char ccc;
 	int done =0;
+	int test1=5;
+	mytest.changeVarByRef(test1);
+	
 	//srand (time(NULL)); /* initialize random seed: */
 	int mapNumberOfTilesX=40;
 	int mapNumberOfTilesY=20;
 	Map myMap;
-	myMap.CreateMap(mapNumberOfTilesX,mapNumberOfTilesY);
-	int x=mapNumberOfTilesX/2;
-	int y= mapNumberOfTilesY/2;
+	myMap.CreateMap(MAPTILESWIDTH,MAPTILESHEIGHT);
+	int x=MAPTILESWIDTH/2;
+	int y= MAPTILESHEIGHT/2;
 	int previosCursorX;
 	int previosCursorY;
 
- 	gotoxy(mapNumberOfTilesX/2,mapNumberOfTilesY/2);
+ 	gotoxy(x,y);//go to map center
 	
-	Creature mioMob1(mapNumberOfTilesX,mapNumberOfTilesY);
+	Creature mioMob1(MAPTILESWIDTH,MAPTILESHEIGHT);
 	
-	Creature mioMob2(mapNumberOfTilesX,mapNumberOfTilesY);
+	Creature mioMob2(MAPTILESWIDTH,MAPTILESHEIGHT);
 	
 	while(1==1)
 	{
@@ -83,10 +92,12 @@ int main()
 		previosCursorY=y;
 		myMap.show();
 
-		mioMob1.move(mapNumberOfTilesX,mapNumberOfTilesY);
-		mioMob2.move(mapNumberOfTilesX,mapNumberOfTilesY);
+
+		mioMob1.move(MAPTILESWIDTH,MAPTILESHEIGHT);
+		mioMob2.move(MAPTILESWIDTH,MAPTILESHEIGHT);
 		gotoxy(previosCursorX,previosCursorY);
 		//cout<<mioMob1.positionX<<"-"<<mioMob1.positionY<<"   "<<mioMob2.positionX<<"-"<<mioMob2.positionY;
+			cout<<"wewwwwwwwwwwwwwwwwwwwwe"<<test1;
 		wasdkeyChar=getch();
 		//cout<<c;
 //		system("CLS");
