@@ -1,11 +1,12 @@
 #include "test.h"
 
 Test::test(){
-	
 }
-
-Test::changeVarByRef(int *myvar)
+void Test::swap(int& x, int& y)
 {
-
-	myvar=myvar+1;
+	int z = x; 
+    x = y; 
+    y = z; 
 }
+
+

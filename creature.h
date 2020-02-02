@@ -4,13 +4,13 @@
 class Creature
 {
 public:
-	int positionX;
-  	int positionY;
-  	int direction;
+	
 	Creature(int mapTilesX, int mapTilesY);
   	void move(int mapTilesX,int mapTilesY);
 private:
-
+	int positionX;
+  	int positionY;
+  	int direction;
 	int returnPos();  // de;clare default constructor
 
 };

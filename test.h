@@ -1,9 +1,9 @@
-#ifndef TEST_H
-#define TEST_H
+#ifndef NPC_H
+#define NPC_H
 class Test
 {
 public:
 	test();
-	void changeVarByRef(int &myvar);
+	void swap(int& x, int& y);
 };
 #endif

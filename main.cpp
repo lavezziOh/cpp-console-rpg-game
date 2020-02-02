@@ -9,7 +9,7 @@
 #include "game.h"
 #include "test.h"
 
-#define MAPTILESWIDTH 30
+#define MAPTILESWIDTH 60
 #define MAPTILESHEIGHT 20
 
 #define GREEN 2
@@ -62,13 +62,17 @@ int main()
 	Game game;
 	game.initialize();
 	Test mytest;
-	
+	int rara=10;
+	int rere=20;
+	mytest.swap(rara,rere);
+	gotoxy(50,22);//go to map center
+	cout<<rara<<" "<<rere;
 	//////////////////////////////////
 	char wasdkeyChar;
 	char ccc;
 	int done =0;
 	int test1=5;
-	mytest.changeVarByRef(test1);
+	//mytest.changeVar(test1);
 	
 	//srand (time(NULL)); /* initialize random seed: */
 	int mapNumberOfTilesX=40;
@@ -97,7 +101,7 @@ int main()
 		mioMob2.move(MAPTILESWIDTH,MAPTILESHEIGHT);
 		gotoxy(previosCursorX,previosCursorY);
 		//cout<<mioMob1.positionX<<"-"<<mioMob1.positionY<<"   "<<mioMob2.positionX<<"-"<<mioMob2.positionY;
-			cout<<"wewwwwwwwwwwwwwwwwwwwwe"<<test1;
+		//	cout<<"wewwwwwwwwwwwwwwwwwwwwe"<<test1;
 		wasdkeyChar=getch();
 		//cout<<c;
 //		system("CLS");
@@ -116,7 +120,7 @@ int main()
 			}
 			if(wasdkeyChar=='d')
 			{
-				if(x<mapNumberOfTilesX-1)
+				if(x<MAPTILESWIDTH-1)
 				{		
 					gotoxy(x,y);
 					ccc = getCursorChar();
@@ -139,7 +143,7 @@ int main()
 			}
 			if(wasdkeyChar=='s')
 			{
-				if(y<mapNumberOfTilesY-1)
+				if(y<MAPTILESHEIGHT-1)
 				{		
 					gotoxy(x,y);
 					ccc = getCursorChar();
