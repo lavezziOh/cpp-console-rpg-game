@@ -88,7 +88,7 @@ int main()
 	
 	Creature mioMob1(MAPTILESWIDTH,MAPTILESHEIGHT);
 	
-	Creature mioMob2(MAPTILESWIDTH,MAPTILESHEIGHT);
+	//Creature mioMob2(MAPTILESWIDTH,MAPTILESHEIGHT);
 	
 	while(1==1)
 	{
@@ -98,7 +98,10 @@ int main()
 
 
 		mioMob1.move(MAPTILESWIDTH,MAPTILESHEIGHT);
-		mioMob2.move(MAPTILESWIDTH,MAPTILESHEIGHT);
+	//	mioMob2.move(MAPTILESWIDTH,MAPTILESHEIGHT);
+		
+	
+  	
 		gotoxy(previosCursorX,previosCursorY);
 		//cout<<mioMob1.positionX<<"-"<<mioMob1.positionY<<"   "<<mioMob2.positionX<<"-"<<mioMob2.positionY;
 		//	cout<<"wewwwwwwwwwwwwwwwwwwwwe"<<test1;
