@@ -1,16 +1,18 @@
 #include <iostream>
 #include <cstdlib>
 #include <windows.h>
-#include <time.h>
+
 #include <fstream>
+#include <vector>
 #include <conio.h>
+
 #include "creature.h"
 #include "map.h"
 #include "game.h"
 #include "test.h"
 
-#define MAPTILESWIDTH 60
-#define MAPTILESHEIGHT 20
+#define MAPTILESWIDTH 120
+#define MAPTILESHEIGHT 60
 
 #define GREEN 2
 #define CYAN 3
@@ -56,11 +58,15 @@ char readConsoleCharAt(int x,int y)  /// Function which reads character at speci
     return ccccc;
 }
 
-
+void fillCreatures(vector<Creature>&);
 int main()
 {
 	Game game;
 	game.initialize();
+//	vector<Creature> mobs;
+//	fillCreatures(mobs);
+	///////////////////////////////////
+	//    pass by reference test
 	Test mytest;
 	int rara=10;
 	int rere=20;
@@ -72,11 +78,8 @@ int main()
 	char ccc;
 	int done =0;
 	int test1=5;
-	//mytest.changeVar(test1);
-	
-	//srand (time(NULL)); /* initialize random seed: */
-	int mapNumberOfTilesX=40;
-	int mapNumberOfTilesY=20;
+
+
 	Map myMap;
 	myMap.CreateMap(MAPTILESWIDTH,MAPTILESHEIGHT);
 	int x=MAPTILESWIDTH/2;
@@ -85,11 +88,7 @@ int main()
 	int previosCursorY;
 
  	gotoxy(x,y);//go to map center
-	
-	Creature mioMob1(MAPTILESWIDTH,MAPTILESHEIGHT);
-	
-	//Creature mioMob2(MAPTILESWIDTH,MAPTILESHEIGHT);
-	
+
 	while(1==1)
 	{
 		previosCursorX=x;
@@ -97,17 +96,18 @@ int main()
 		myMap.show();
 
 
-		mioMob1.move(MAPTILESWIDTH,MAPTILESHEIGHT);
-	//	mioMob2.move(MAPTILESWIDTH,MAPTILESHEIGHT);
-		
-	
+
+//	for (int i=0;i<11;i++)
+//	{
+//		mobs[i].move(MAPTILESWIDTH,MAPTILESHEIGHT);
+//		
+//	}
+		game.update();
   	
 		gotoxy(previosCursorX,previosCursorY);
-		//cout<<mioMob1.positionX<<"-"<<mioMob1.positionY<<"   "<<mioMob2.positionX<<"-"<<mioMob2.positionY;
-		//	cout<<"wewwwwwwwwwwwwwwwwwwwwe"<<test1;
+	
 		wasdkeyChar=getch();
-		//cout<<c;
-//		system("CLS");
+	
 		if(wasdkeyChar=='a' || wasdkeyChar=='d' || wasdkeyChar=='w' || wasdkeyChar=='s')
 		{
 			if(wasdkeyChar=='a')
@@ -166,5 +166,14 @@ int main()
 
 
 return 0;
+}
+
+void fillCreatures(vector<Creature>& mobs){
+
+	for (int i=0;i<11;i++)
+	{
+		Creature newMob(MAPTILESWIDTH,MAPTILESHEIGHT);	
+		mobs.push_back(newMob);
+	}
 }
 
