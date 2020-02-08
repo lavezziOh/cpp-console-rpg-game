@@ -1,15 +1,15 @@
 #ifndef NPC_H
-#define NPC__H
+#define NPC_H
 
 class Npc{
 public:
-	npc(){};
+	Npc();
 	void move(int mapTilesX,int mapTilesY);
 	private:
 	int direction;
 	int positionX;
 	int positionY;
-		
+	
 };
 
 #endif

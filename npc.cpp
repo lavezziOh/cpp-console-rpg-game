@@ -1,14 +1,17 @@
 #include "npc.h"
 #include <windows.h>
 #include <iostream>
-Npc::npc(){
-	this->direction=4;
-	this->positionX=2;
-	this->positionY=0;
+
+
+Npc::Npc()
+{
+	direction=4;
+	positionX=2;
+	positionY=0;
 	COORD coord;
 	coord.X = this->positionX;
 	coord.Y = this->positionY;
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),5);//MAGENTA
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),13);//LIGHT MAGENTA
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 	std::cout<<"H";
 }
@@ -28,7 +31,7 @@ void Npc::move(int mapTilesX,int mapTilesY)
 		if (this->positionY>0){this->positionY=this->positionY-1;}
 		coord.X = this->positionX;
 		coord.Y = this->positionY;
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),5);//MAGENTA
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),13);//LIGHT MAGENTA
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 		
 	}
@@ -44,7 +47,7 @@ void Npc::move(int mapTilesX,int mapTilesY)
 		if (this->positionY<mapTilesY-1){this->positionY=this->positionY+1;}
 		coord.X = this->positionX;
 		coord.Y = this->positionY;
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),5);//MAGENTA
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),13);//LIGHT MAGENTA
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 		
 	}
@@ -60,7 +63,7 @@ void Npc::move(int mapTilesX,int mapTilesY)
 		if (this->positionX<mapTilesX-1){this->positionX=this->positionX+1;}
 		coord.X = this->positionX;
 		coord.Y = this->positionY;
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),5);//MAGENTA
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),13);//LIGHT MAGENTA
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 	}
 	//W
@@ -151,3 +154,4 @@ void Npc::move(int mapTilesX,int mapTilesY)
 	
 	
 }
+

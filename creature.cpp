@@ -12,9 +12,10 @@
      6     4           SW     SE
         5   			   S
 */
- Creature::Creature(){
+Creature::Creature()
+{
  	this->maxHealthPoints=3;
- }
+}
  Creature::Creature(int mapTilesX,int mapTilesY)
 {
 	//srand (time(NULL));
@@ -23,6 +24,7 @@
 	this->positionX=rand()%mapTilesX+1;
 	this->positionY=rand()%mapTilesY+1;
 	this->direction=rand()%8+1;
+	//this->inCombat=false;
 	coord.X = this->positionX;
 	coord.Y = this->positionY;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),14);//yellow

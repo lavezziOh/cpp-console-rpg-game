@@ -5,6 +5,7 @@ class Creature
 {
 public:
 	int maxHealthPoints;
+	//bool inCombat;
 	Creature();
 	Creature(int mapTilesX, int mapTilesY);
   	void move(int mapTilesX,int mapTilesY);

@@ -5,13 +5,13 @@
 class Game
 {
 public:
-	
-	 game();
-	 void initialize();
-	 std::vector<int> vect;  
-	 void update();
+	int NumberOfCreatures;
+	Game();
+	void initialize(int nCreatures);
+	std::vector<int> vect;  
+	void update();
 private:
-
+ 
 	std::vector<Creature> mobs;  
 	void moveCreatures();
 	

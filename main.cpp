@@ -74,23 +74,14 @@ void fillCreatures(vector<Creature>&);
 int main()
 {
 	Game game;
-	game.initialize();
-	Npc npc;
-//	vector<Creature> mobs;
-//	fillCreatures(mobs);
-	///////////////////////////////////
-	//    pass by reference test
-	Test mytest;
-	int rara=10;
-	int rere=20;
-	mytest.swap(rara,rere);
-	gotoxy(50,22);//go to map center
-	cout<<rara<<" "<<rere;
+	
+	game.initialize(100);
+	Npc npc123;
+
 	//////////////////////////////////
 	char wasdkeyChar;
 	char ccc;
-	int done =0;
-	int test1=5;
+
 
 
 	Map myMap;
@@ -104,6 +95,7 @@ int main()
 
 	while(1==1)
 	{
+		
 		previosCursorX=x;
 		previosCursorY=y;
 		myMap.show();
@@ -111,63 +103,64 @@ int main()
 		game.update();
   	
 		gotoxy(previosCursorX,previosCursorY);
-		npc.move(MAPTILESWIDTH,MAPTILESHEIGHT);
-		wasdkeyChar=getch();
-	
-		if(wasdkeyChar=='a' || wasdkeyChar=='d' || wasdkeyChar=='w' || wasdkeyChar=='s')
-		{
-			if(wasdkeyChar=='a')
-			{
-				if(x>0)
-				{
-					gotoxy(x,y);
-					ccc = getCursorChar();
-					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),WHITE);
-					cout<<ccc;
-					x=x-1;
-				}
-			}
-			if(wasdkeyChar=='d')
-			{
-				if(x<MAPTILESWIDTH-1)
-				{		
-					gotoxy(x,y);
-					ccc = getCursorChar();
-					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),WHITE);
-					cout<<ccc;
-					x=x+1;
-				}
-			}
-			if(wasdkeyChar=='w')
-			{
-				if(y>0)
-				{		
-					gotoxy(x,y);
-					ccc = getCursorChar();
-					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),WHITE);
-					cout<<ccc;
-					y=y-1;
-				}
-				
-			}
-			if(wasdkeyChar=='s')
-			{
-				if(y<MAPTILESHEIGHT-1)
-				{		
-					gotoxy(x,y);
-					ccc = getCursorChar();
-					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),WHITE);
-					cout<<ccc;
-					y=y+1;
-				}
-			}
-			gotoxy(x,y);
-			ccc = getCursorChar();
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),LIGHTCYAN);
-			cout<<ccc;
-			gotoxy(x,y);
-		
-		}
+		npc123.move(MAPTILESWIDTH,MAPTILESHEIGHT);
+		Sleep(500);
+//		wasdkeyChar=getch();
+//	
+//		if(wasdkeyChar=='a' || wasdkeyChar=='d' || wasdkeyChar=='w' || wasdkeyChar=='s')
+//		{
+//			if(wasdkeyChar=='a')
+//			{
+//				if(x>0)
+//				{
+//					gotoxy(x,y);
+//					ccc = getCursorChar();
+//					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),WHITE);
+//					cout<<ccc;
+//					x=x-1;
+//				}
+//			}
+//			if(wasdkeyChar=='d')
+//			{
+//				if(x<MAPTILESWIDTH-1)
+//				{		
+//					gotoxy(x,y);
+//					ccc = getCursorChar();
+//					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),WHITE);
+//					cout<<ccc;
+//					x=x+1;
+//				}
+//			}
+//			if(wasdkeyChar=='w')
+//			{
+//				if(y>0)
+//				{		
+//					gotoxy(x,y);
+//					ccc = getCursorChar();
+//					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),WHITE);
+//					cout<<ccc;
+//					y=y-1;
+//				}
+//				
+//			}
+//			if(wasdkeyChar=='s')
+//			{
+//				if(y<MAPTILESHEIGHT-1)
+//				{		
+//					gotoxy(x,y);
+//					ccc = getCursorChar();
+//					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),WHITE);
+//					cout<<ccc;
+//					y=y+1;
+//				}
+//			}
+//			gotoxy(x,y);
+//			ccc = getCursorChar();
+//			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),LIGHTCYAN);
+//			cout<<ccc;
+//			gotoxy(x,y);
+//		
+//		}
 	}
 
 
