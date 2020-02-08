@@ -13,16 +13,16 @@
         5   			   S
 */
  Creature::Creature(){
+ 	this->maxHealthPoints=3;
  }
  Creature::Creature(int mapTilesX,int mapTilesY)
 {
 	//srand (time(NULL));
+	this->maxHealthPoints=3;
 	COORD coord;
 	this->positionX=rand()%mapTilesX+1;
 	this->positionY=rand()%mapTilesY+1;
 	this->direction=rand()%8+1;
-	
-	
 	coord.X = this->positionX;
 	coord.Y = this->positionY;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),14);//yellow

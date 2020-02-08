@@ -4,7 +4,7 @@
 class Creature
 {
 public:
-	
+	int maxHealthPoints;
 	Creature();
 	Creature(int mapTilesX, int mapTilesY);
   	void move(int mapTilesX,int mapTilesY);

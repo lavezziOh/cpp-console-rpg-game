@@ -1,8 +1,15 @@
-#ifndef TEST_H
-#define TEST_H
+#ifndef NPC_H
+#define NPC__H
 
-class nps{
-	
+class Npc{
+public:
+	npc(){};
+	void move(int mapTilesX,int mapTilesY);
+	private:
+	int direction;
+	int positionX;
+	int positionY;
+		
 };
 
 #endif

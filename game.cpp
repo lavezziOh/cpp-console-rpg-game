@@ -2,6 +2,8 @@
 #include <windows.h>
 #include "creature.h"
 #include <time.h>
+#define MAPTILESWIDTH 120
+#define MAPTILESHEIGHT 60
 Game::game()
 {
 	
@@ -16,7 +18,7 @@ void Game::initialize()
 	MoveWindow(console, 0, 0, 1280, 1024, TRUE);
 	//CREATE CREATURES
 	//std::vector<Creature> mobs;  
-	for (int i=0;i<11;i++)
+	for (int i=0;i<1;i++)
 	{
 		Creature newMob(80,44);	
 		
@@ -32,9 +34,9 @@ void Game::update()
 void Game::moveCreatures()
 {
 	
-	for (int i=0;i<11;i++)
+	for (int i=0;i<1;i++)
 	{
-		mobs[i].move(100,50);
+		mobs[i].move(MAPTILESWIDTH,MAPTILESHEIGHT);
 		
 	}
 }

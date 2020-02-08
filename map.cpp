@@ -54,6 +54,6 @@ void Map::show()
   	coord.X = 0;
   	coord.Y = 0;
   	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15); //WHITE
 	std::cout<<this->mapString;
 }

@@ -9,6 +9,7 @@
 #include "creature.h"
 #include "map.h"
 #include "game.h"
+#include "npc.h"
 #include "test.h"
 
 #define MAPTILESWIDTH 120
@@ -59,10 +60,22 @@ char readConsoleCharAt(int x,int y)  /// Function which reads character at speci
 }
 
 void fillCreatures(vector<Creature>&);
+
+
+//////////////////////////////////////////
+//
+//
+//
+// MAIN
+//
+//
+//
+//////////////////////////////////////////
 int main()
 {
 	Game game;
 	game.initialize();
+	Npc npc;
 //	vector<Creature> mobs;
 //	fillCreatures(mobs);
 	///////////////////////////////////
@@ -95,17 +108,10 @@ int main()
 		previosCursorY=y;
 		myMap.show();
 
-
-
-//	for (int i=0;i<11;i++)
-//	{
-//		mobs[i].move(MAPTILESWIDTH,MAPTILESHEIGHT);
-//		
-//	}
 		game.update();
   	
 		gotoxy(previosCursorX,previosCursorY);
-	
+		npc.move(MAPTILESWIDTH,MAPTILESHEIGHT);
 		wasdkeyChar=getch();
 	
 		if(wasdkeyChar=='a' || wasdkeyChar=='d' || wasdkeyChar=='w' || wasdkeyChar=='s')
