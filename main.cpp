@@ -74,18 +74,16 @@ void fillCreatures(vector<Creature>&);
 int main()
 {
 	Game game;
-	
-	game.initialize(100);
-	Npc npc123;
-
+	game.initialize(MAPTILESWIDTH,MAPTILESHEIGHT,100);
+	Map myMap;
+	myMap.CreateMap(MAPTILESWIDTH,MAPTILESHEIGHT);
 	//////////////////////////////////
 	char wasdkeyChar;
 	char ccc;
 
 
 
-	Map myMap;
-	myMap.CreateMap(MAPTILESWIDTH,MAPTILESHEIGHT);
+
 	int x=MAPTILESWIDTH/2;
 	int y= MAPTILESHEIGHT/2;
 	int previosCursorX;
@@ -103,7 +101,7 @@ int main()
 		game.update();
   	
 		gotoxy(previosCursorX,previosCursorY);
-		npc123.move(MAPTILESWIDTH,MAPTILESHEIGHT);
+		//npc123.move(MAPTILESWIDTH,MAPTILESHEIGHT);
 		Sleep(500);
 //		wasdkeyChar=getch();
 //	
