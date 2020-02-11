@@ -24,15 +24,15 @@ Creature::Creature()
 	this->positionX=rand()%mapTilesX+1;
 	this->positionY=rand()%mapTilesY+1;
 	this->direction=rand()%8+1;
-	int x=rand()%2;
-	if(x==1)
-	{
+//	int x=rand()%2;
+//	if(x==1)
+//	{
 		this->inCombat=false;	
-	}
-	else
-	{
-		this->inCombat=true;	
-	}
+//	}
+//	else
+//	{
+//		this->inCombat=true;	
+//	}
 		
 	coord.X = this->positionX;
 	coord.Y = this->positionY;

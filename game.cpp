@@ -1,17 +1,22 @@
 #include <windows.h>
 #include <time.h>
+#include <vector>
 #include "game.h"
 #include "creature.h"
 #include "npc.h"
 
-#define MAPTILESWIDTH 120
-#define MAPTILESHEIGHT 60
+
 Game::Game()
 {
 	NumberOfCreatures=10;
 }
 void Game::initialize(int MapMaxX,int MapMaxY,int nCreatures)
 {
+	
+	
+	this->MapMaxTilesX=MapMaxY;
+	this->MapMaxTilesY=MapMaxY;
+
 	this->NumberOfCreatures=nCreatures;
 	srand (time(NULL));
 	//RESIZE AND MOVE WINDOW
@@ -32,9 +37,16 @@ void Game::initialize(int MapMaxX,int MapMaxY,int nCreatures)
 }
 void Game::update()
 {
-	//Hero.move();
+
+	int size = static_cast<int>(mobs.size());
 	moveCreatures();
-Hero.move(MAPTILESWIDTH,MAPTILESHEIGHT);
+	if (Hero.isInCombat(mobs)==false){}
+	
+	
+	
+	Hero.move(MapMaxTilesX,MapMaxTilesY);
+	if (Hero.isInCombat(mobs)==false){}
+	
 	
 }
 void Game::moveCreatures()
@@ -42,8 +54,9 @@ void Game::moveCreatures()
 	
 	for (int i=0;i<NumberOfCreatures;i++)
 	{
-		
-		mobs[i].move(MAPTILESWIDTH,MAPTILESHEIGHT);
+	
+		mobs[i].move(MapMaxTilesX,MapMaxTilesY);
+	
 		
 	}
 }

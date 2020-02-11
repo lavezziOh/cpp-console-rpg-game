@@ -12,8 +12,8 @@
 #include "npc.h"
 #include "test.h"
 
-#define MAPTILESWIDTH 120
-#define MAPTILESHEIGHT 60
+#define MAPTILESWIDTH 60
+#define MAPTILESHEIGHT 20
 
 #define GREEN 2
 #define CYAN 3
@@ -74,7 +74,7 @@ void fillCreatures(vector<Creature>&);
 int main()
 {
 	Game game;
-	game.initialize(MAPTILESWIDTH,MAPTILESHEIGHT,100);
+	game.initialize(MAPTILESWIDTH,MAPTILESHEIGHT,11);
 	Map myMap;
 	myMap.CreateMap(MAPTILESWIDTH,MAPTILESHEIGHT);
 	//////////////////////////////////
@@ -102,8 +102,8 @@ int main()
   	
 		gotoxy(previosCursorX,previosCursorY);
 		//npc123.move(MAPTILESWIDTH,MAPTILESHEIGHT);
-		Sleep(500);
-//		wasdkeyChar=getch();
+	//	Sleep(500);
+		wasdkeyChar=getch();
 //	
 //		if(wasdkeyChar=='a' || wasdkeyChar=='d' || wasdkeyChar=='w' || wasdkeyChar=='s')
 //		{

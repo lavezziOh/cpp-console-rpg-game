@@ -11,6 +11,8 @@ public:
 	void initialize(int MapMaxX,int MapMaxY,int nCreatures);
 	std::vector<int> vect;  
 	void update();
+	int MapMaxTilesX;
+	int MapMaxTilesY;
 private:
     Npc Hero;
 	std::vector<Creature> mobs;  
