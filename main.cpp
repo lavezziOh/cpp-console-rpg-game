@@ -12,22 +12,31 @@
 #include "npc.h"
 #include "test.h"
 
-#define MAPTILESWIDTH 60
-#define MAPTILESHEIGHT 20
 
 #define GREEN 2
-#define CYAN 3
-#define RED 4
-#define MAGENTA 5
+//#define CYAN 3
+extern const int CYAN=3;
+//#define RED 4
+extern const int RED=4;
+//#define MAGENTA 5
+extern const int MAGENTA=5;
 #define BROWN 6
 #define DARKGRAY 8
 #define LIGHTBLUE 9
 #define LIGHTGREEN 10
-#define LIGHTCYAN 11
-#define LIGHTRED 12
-#define LIGHTMAGENTA 13
-#define YELLOW 14
+//#define LIGHTCYAN 11
+extern const int LIGHTCYAN=11;
+//#define LIGHTRED 12
+extern const int LIGHTRED=12;
+//#define LIGHTMAGENTA 13
+extern const int LIGHTMAGENTA=13;
+//#define YELLOW 14
+extern const int YELLOW=14;
 #define WHITE 15
+
+#define MAPTILESWIDTH 60
+#define MAPTILESHEIGHT 20
+#define NUMBEROFMONSTER 10
 using namespace std;
 void gotoxy(int x, int y)
 {
@@ -59,8 +68,6 @@ char readConsoleCharAt(int x,int y)  /// Function which reads character at speci
     return ccccc;
 }
 
-void fillCreatures(vector<Creature>&);
-
 
 //////////////////////////////////////////
 //
@@ -74,10 +81,9 @@ void fillCreatures(vector<Creature>&);
 int main()
 {
 	Game game;
-	game.initialize(MAPTILESWIDTH,MAPTILESHEIGHT,11);
+	game.initialize(MAPTILESWIDTH,MAPTILESHEIGHT,NUMBEROFMONSTER);
 	Map myMap;
 	myMap.CreateMap(MAPTILESWIDTH,MAPTILESHEIGHT);
-	//////////////////////////////////
 	char wasdkeyChar;
 	char ccc;
 
@@ -89,8 +95,6 @@ int main()
 	int previosCursorX;
 	int previosCursorY;
 
- 	gotoxy(x,y);//go to map center
-
 	while(1==1)
 	{
 		
@@ -101,7 +105,6 @@ int main()
 		game.update();
   	
 		gotoxy(previosCursorX,previosCursorY);
-		//npc123.move(MAPTILESWIDTH,MAPTILESHEIGHT);
 	//	Sleep(500);
 		wasdkeyChar=getch();
 //	
@@ -165,12 +168,4 @@ int main()
 return 0;
 }
 
-void fillCreatures(vector<Creature>& mobs){
-
-	for (int i=0;i<11;i++)
-	{
-		Creature newMob(MAPTILESWIDTH,MAPTILESHEIGHT);	
-		mobs.push_back(newMob);
-	}
-}
 

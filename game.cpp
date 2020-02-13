@@ -14,20 +14,16 @@ void Game::initialize(int MapMaxX,int MapMaxY,int nCreatures)
 {
 	
 	
-	this->MapMaxTilesX=MapMaxY;
+	this->MapMaxTilesX=MapMaxX;
 	this->MapMaxTilesY=MapMaxY;
-
 	this->NumberOfCreatures=nCreatures;
 	srand (time(NULL));
 	//RESIZE AND MOVE WINDOW
 	HWND console = GetConsoleWindow();
 	RECT ConsoleRect;
 	GetWindowRect(console, &ConsoleRect); 
-	MoveWindow(console, 0, 0, 1280, 1024, TRUE);
+	MoveWindow(console, 0, 0, 800, 400, TRUE);
 	//CREATE CREATURES
-	//std::vector<Creature> mobs;  
-	//Npc Hero;
-	
 	for (int i=0;i<NumberOfCreatures;i++)
 	{
 		Creature newMob(MapMaxX,MapMaxY-2);	
@@ -39,11 +35,13 @@ void Game::update()
 {
 
 	int size = static_cast<int>(mobs.size());
+	//We Move Creatures first and check if some is near Hero.
 	moveCreatures();
+	
 	if (Hero.isInCombat(mobs)==false){}
 	
 	
-	
+	//We Move Hero and check again if some Mob is near him.
 	Hero.move(MapMaxTilesX,MapMaxTilesY);
 	if (Hero.isInCombat(mobs)==false){}
 	

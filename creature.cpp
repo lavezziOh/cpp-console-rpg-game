@@ -5,13 +5,7 @@
 #include <time.h> 
 
 
-/*
-        1                  N
-	 8	   2           NW     NE
-    7       3         W         E
-     6     4           SW     SE
-        5   			   S
-*/
+
 Creature::Creature()
 {
 
@@ -19,7 +13,9 @@ Creature::Creature()
  Creature::Creature(int mapTilesX,int mapTilesY)
 {
 	//srand (time(NULL));
-	this->maxHealthPoints=3;
+	this->maxHealthPoints=10;
+	this->HP=10;
+	
 	COORD coord;
 	this->positionX=rand()%mapTilesX+1;
 	this->positionY=rand()%mapTilesY+1;
@@ -36,21 +32,25 @@ Creature::Creature()
 		
 	coord.X = this->positionX;
 	coord.Y = this->positionY;
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),14);//yellow
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),YELLOW);
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 	std::cout<<"@";
 }
 
+
 void Creature::move(int mapTilesX,int mapTilesY)
 {
+	/*
+        1                  N
+	 8	   2           NW     NE
+    7       3         W         E
+     6     4           SW     SE
+        5   			   S
+*/
 	COORD coord;
-	////////////////////////////////////	
-	// don't move creatuers in combat
-	////////////////////////////////////
+	//move creature not in combat
 	if(this->inCombat==false)
 	{
-		
-		
 		//N
 		if(this->direction==1)
 		{
@@ -60,13 +60,7 @@ void Creature::move(int mapTilesX,int mapTilesY)
 				//this->direction=5;
 			}
 			if (this->positionY>0){this->positionY=this->positionY-1;}
-			coord.X = this->positionX;
-			coord.Y = this->positionY;
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),14);//yellow
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-			
 		}
-		
 		//S
 		if(this->direction==5)
 		{
@@ -76,11 +70,6 @@ void Creature::move(int mapTilesX,int mapTilesY)
 				//this->direction=1;
 			}
 			if (this->positionY<mapTilesY-1){this->positionY=this->positionY+1;}
-			coord.X = this->positionX;
-			coord.Y = this->positionY;
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),14);//yellow
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-			
 		}
 		//E
 		if(this->direction==3)
@@ -92,10 +81,6 @@ void Creature::move(int mapTilesX,int mapTilesY)
 				this->direction=rand()%8+1;
 			}
 			if (this->positionX<mapTilesX-1){this->positionX=this->positionX+1;}
-			coord.X = this->positionX;
-			coord.Y = this->positionY;
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),14);//yellow
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 		}
 		//W
 		if(this->direction==7)
@@ -107,11 +92,6 @@ void Creature::move(int mapTilesX,int mapTilesY)
 				this->direction=rand()%8+1;
 			}
 			if (this->positionX>0){this->positionX=this->positionX-1;}
-			coord.X = this->positionX;
-			coord.Y = this->positionY;
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),14);//yellow
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-			
 		}
 		//NE
 		if(this->direction==2)
@@ -125,11 +105,6 @@ void Creature::move(int mapTilesX,int mapTilesY)
 		
 			if (this->positionX<mapTilesX-1){this->positionX=this->positionX+1;}
 			if (this->positionY>0){this->positionY=this->positionY-1;}
-			coord.X = this->positionX;
-			coord.Y = this->positionY;
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),14);//yellow
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-			
 		}
 		//SW
 		if(this->direction==6)
@@ -141,10 +116,6 @@ void Creature::move(int mapTilesX,int mapTilesY)
 			}
 			if (this->positionX>0){this->positionX=this->positionX-1;}
 			if (this->positionY<mapTilesY-1){this->positionY=this->positionY+1;}
-			coord.X = this->positionX;
-			coord.Y = this->positionY;
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),14);//yellow
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 		}
 		//SE
 		if(this->direction==4)
@@ -158,11 +129,6 @@ void Creature::move(int mapTilesX,int mapTilesY)
 		
 			if (this->positionX<mapTilesX-1){this->positionX=this->positionX+1;}
 			if (this->positionY<mapTilesY-1){this->positionY=this->positionY+1;}
-			coord.X = this->positionX;
-			coord.Y = this->positionY;
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),14);//yellow
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-			
 		}
 		//NW
 		if(this->direction==8)
@@ -174,22 +140,19 @@ void Creature::move(int mapTilesX,int mapTilesY)
 			}
 			if (this->positionX>0){this->positionX=this->positionX-1;}
 			if (this->positionY>0){this->positionY=this->positionY-1;}
-			coord.X = this->positionX;
-			coord.Y = this->positionY;
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),14);//yellow
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 		}
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),YELLOW);
 	}
 	else
 	{
-		coord.X = this->positionX;
-		coord.Y = this->positionY;
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),12);//yellow
-		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+		//change creature color
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),LIGHTRED);
 	}
+	coord.X = this->positionX;
+	coord.Y = this->positionY;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),YELLOW);
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 	std::cout<<"@";
-
-	
 	
 }
 
