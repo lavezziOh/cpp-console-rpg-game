@@ -39,29 +39,51 @@ bool Npc::isInCombat(std::vector<Creature>& mobs)
 		coord.X = 60;
 		newY=i+1;
 		coord.Y = newY;
+		std::string isdead;
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),LIGHTCYAN);
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+		if(mobs[i].isAlive==false)
+		{
+			isdead="is dead";
+		}
+		else
+		{
+			isdead="is alive";
+		}
+		std::cout<<"Mob"<<i<<" Hp:"<<mobs[i].HP<<" "<<isdead <<" "<<mobs[i].positionX<<" "<<mobs[i].positionY<<"           ";
 		
-		if((mobs[i].positionX==this->positionX || mobs[i].positionX==this->positionX-1 || mobs[i].positionX==this->positionX+1) && (mobs[i].positionY==this->positionY || mobs[i].positionY==this->positionY-1 || mobs[i].positionY==this->positionY+1))
+		
+		
+		
+		//Check if some Mob is close to Hero
+		if((mobs[i].isAlive==true) && (mobs[i].positionX==this->positionX || mobs[i].positionX==this->positionX-1 || mobs[i].positionX==this->positionX+1) && (mobs[i].positionY==this->positionY || mobs[i].positionY==this->positionY-1 || mobs[i].positionY==this->positionY+1))
 		{
 					
 			mobs[i].inCombat=true;
 			this->isFighting=true;
+			//////////////////////
 			//Hero Damage
+			//////////////////////
 			int damage=rand()%5+1;
-			mobs[i].HP=	mobs[i].HP-damage;		
+			mobs[i].HP=	mobs[i].HP-damage;
+			//Mob is dead		
 			if(mobs[i].HP<=0 && mobs[i].isAlive==true)
 			{
 				mobs[i].isAlive=false;
 				this->isFighting=false;
+				coord.X = 60;
+				newY=i+20;
+				coord.Y = newY;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 				std::cout<<"Hero Hp:"<<currentHeroHp<<"("<<damage<<")"<<" Mob "<<i<<" is DEAD       ";
 				mobs.erase(mobs.begin() + i);
+				return false;
 			}
 			else
 			{
 				coord.X = 70;
 				coord.Y = 15;
-					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),RED);
 				std::cout<<"                                                  "<<std::endl;	
 				if(mobs[i].inCombat==true)
@@ -71,8 +93,8 @@ bool Npc::isInCombat(std::vector<Creature>& mobs)
 					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),RED);
 					std::cout<<" WAR " ;
 					coord.X = 60;
-					coord.Y = 16;
-						SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+					coord.Y = i+20;
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),RED);
 					std::cout<<"Hero Hp:"<<currentHeroHp<<"("<<damage<<")"<<" MobHP"<<i<<":"<<mobs[i].HP<<"  ";	
 				}
@@ -90,7 +112,6 @@ bool Npc::isInCombat(std::vector<Creature>& mobs)
 			return true;
 		}
 	
-		//mobs[i].move(MAPTILESWIDTH,MAPTILESHEIGHT);
 	
 		
 	}

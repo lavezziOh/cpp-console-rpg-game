@@ -22,7 +22,7 @@ void Game::initialize(int MapMaxX,int MapMaxY,int nCreatures)
 	HWND console = GetConsoleWindow();
 	RECT ConsoleRect;
 	GetWindowRect(console, &ConsoleRect); 
-	MoveWindow(console, 0, 0, 800, 400, TRUE);
+	MoveWindow(console, 0, 0, 1000, 600, TRUE);
 	//CREATE CREATURES
 	for (int i=0;i<NumberOfCreatures;i++)
 	{
@@ -34,7 +34,7 @@ void Game::initialize(int MapMaxX,int MapMaxY,int nCreatures)
 void Game::update()
 {
 
-	int size = static_cast<int>(mobs.size());
+	
 	//We Move Creatures first and check if some is near Hero.
 	moveCreatures();
 	

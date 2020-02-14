@@ -34,9 +34,9 @@ extern const int LIGHTMAGENTA=13;
 extern const int YELLOW=14;
 #define WHITE 15
 
-#define MAPTILESWIDTH 60
-#define MAPTILESHEIGHT 20
-#define NUMBEROFMONSTER 10
+#define MAPTILESWIDTH 12
+#define MAPTILESHEIGHT 12
+#define NUMBEROFMONSTER 4
 using namespace std;
 void gotoxy(int x, int y)
 {

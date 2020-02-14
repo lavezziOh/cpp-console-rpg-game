@@ -3,21 +3,22 @@
 #include <cstdlib>
 #include <windows.h>
 #include <time.h> 
+#include <string>
 
 
 
 Creature::Creature()
 {
-
+this->isAlive=true;
 }
  Creature::Creature(int mapTilesX,int mapTilesY)
 {
 	//srand (time(NULL));
 	this->maxHealthPoints=10;
 	this->HP=10;
-	
+	this->isAlive=true;
 	COORD coord;
-	this->positionX=rand()%mapTilesX+1;
+	this->positionX=rand()%mapTilesX;
 	this->positionY=rand()%mapTilesY+1;
 	this->direction=rand()%8+1;
 //	int x=rand()%2;
@@ -48,8 +49,8 @@ void Creature::move(int mapTilesX,int mapTilesY)
         5   			   S
 */
 	COORD coord;
-	//move creature not in combat
-	if(this->inCombat==false)
+	//move creature if not in combat
+	if(this->isAlive==true && this->inCombat==false)
 	{
 		//N
 		if(this->direction==1)
@@ -141,18 +142,32 @@ void Creature::move(int mapTilesX,int mapTilesY)
 			if (this->positionX>0){this->positionX=this->positionX-1;}
 			if (this->positionY>0){this->positionY=this->positionY-1;}
 		}
+		coord.X = this->positionX;
+		coord.Y = this->positionY;
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),YELLOW);
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+		std::cout<<"@";
 	}
-	else
+
+		//change creature color when in combat
+		
+
+	if (this->isAlive==true && this->inCombat==true)
 	{
-		//change creature color
+		coord.X = this->positionX;
+		coord.Y = this->positionY;
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),LIGHTRED);
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+		std::cout<<"@";
 	}
-	coord.X = this->positionX;
-	coord.Y = this->positionY;
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),YELLOW);
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-	std::cout<<"@";
+	if (this->isAlive==false)
+	{
+		coord.X = this->positionX;
+		coord.Y = this->positionY;
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),YELLOW);
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+		std::cout<<"X";
+	}
 	
 }
 
