@@ -10,7 +10,7 @@
 #include "map.h"
 #include "game.h"
 #include "npc.h"
-#include "test.h"
+#include "item.h"
 
 
 #define GREEN 2
@@ -86,7 +86,7 @@ int main()
 	myMap.CreateMap(MAPTILESWIDTH,MAPTILESHEIGHT);
 	char wasdkeyChar;
 	char ccc;
-
+	Item MyItem("spada",5,5);
 
 
 

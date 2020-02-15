@@ -9,9 +9,9 @@
 
 Creature::Creature()
 {
-this->isAlive=true;
+	this->isAlive=true;
 }
- Creature::Creature(int mapTilesX,int mapTilesY)
+Creature::Creature(int mapTilesX,int mapTilesY)
 {
 	//srand (time(NULL));
 	this->maxHealthPoints=10;
