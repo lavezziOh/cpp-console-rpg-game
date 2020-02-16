@@ -8,7 +8,7 @@ public:
 
   Weapon(int damage) ;
 
-  //void print(void) { std::cout << name << ": " << weight << " " << value << " " << damage << endl; }
+  ////void print(void) { std::cout << name << ": " << weight << " " << value << " " << damage << endl; }
 };
 
 #endif
