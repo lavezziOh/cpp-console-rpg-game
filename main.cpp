@@ -10,8 +10,8 @@
 #include "map.h"
 #include "game.h"
 #include "npc.h"
-#include "test.h"
-
+#include "item.h"
+#include "weapon.h"
 
 #define GREEN 2
 //#define CYAN 3
@@ -86,9 +86,13 @@ int main()
 	myMap.CreateMap(MAPTILESWIDTH,MAPTILESHEIGHT);
 	char wasdkeyChar;
 	char ccc;
+	Item MyItem("spada",5,5);
+	Weapon MyWeapon(5,"asd",4,1);
 
-
-
+	ofstream myfile;
+	myfile.open ("example.txt",std::ios_base::app);
+	myfile << "Writing this to a file.\n";
+	myfile.close();
 
 	int x=MAPTILESWIDTH/2;
 	int y= MAPTILESHEIGHT/2;
