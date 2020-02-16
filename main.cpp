@@ -12,7 +12,6 @@
 #include "npc.h"
 #include "item.h"
 #include "weapon.h"
-
 #define GREEN 2
 //#define CYAN 3
 extern const int CYAN=3;

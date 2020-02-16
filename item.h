@@ -10,11 +10,11 @@ public:
   string name;
   int weight;
   int value;
-
   Item(string n, int w, int v) ;
-  //virtual void print(void);
+
 };
 #endif
+
 //
 //class Weapon : public Item
 //{
