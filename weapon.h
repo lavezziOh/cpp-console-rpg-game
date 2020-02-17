@@ -7,8 +7,8 @@ public:
   int damage;
   Weapon();
    
-	Weapon(int damage);
-  ////void print(void) { std::cout << name << ": " << weight << " " << value << " " << damage << endl; }
+	Weapon(int damage, string n, int w, int v);
+
 };
 
 #endif

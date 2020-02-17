@@ -87,11 +87,11 @@ int main()
 	char ccc;
 	Item MyItem("spada",5,5);
 	Weapon MyWeapon(5,"asd",4,1);
-
-	ofstream myfile;
-	myfile.open ("example.txt",std::ios_base::app);
-	myfile << "Writing this to a file.\n";
-	myfile.close();
+//
+//	ofstream myfile;
+//	myfile.open ("example.txt",std::ios_base::app);
+//	myfile << "Writing this to a file.\n";
+//	myfile.close();
 
 	int x=MAPTILESWIDTH/2;
 	int y= MAPTILESHEIGHT/2;
