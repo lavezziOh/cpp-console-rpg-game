@@ -1,6 +1,5 @@
 #ifndef ITEM_H
 #define ITEM_H
-
 #include <string>
 #include <iostream>
 using namespace std;
@@ -10,7 +9,7 @@ public:
   string name;
   int weight;
   int value;
-  Item(string n, int w, int v) ;
+  Item(string n, int w, int v);
 
 };
 #endif

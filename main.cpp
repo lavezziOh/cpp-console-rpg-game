@@ -86,7 +86,7 @@ int main()
 	char wasdkeyChar;
 	char ccc;
 	Item MyItem("spada",5,5);
-	//Weapon MyWeapon(5,"asd",4,1);
+	Weapon MyWeapon(5,"asd",4,1);
 
 	ofstream myfile;
 	myfile.open ("example.txt",std::ios_base::app);

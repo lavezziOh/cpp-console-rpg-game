@@ -30,8 +30,7 @@ SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000001000000
 UnitCount=13
-UnitCount=11
-
+UnitCount=13
 
 [VersionInfo]
 Major=1
@@ -173,7 +172,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit12]
-FileName=weapon.h
+FileName=weapon.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -183,7 +182,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit13]
-FileName=weapon.cpp
+FileName=weapon.h
 CompileCpp=1
 Folder=
 Compile=1
