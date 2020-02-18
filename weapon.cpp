@@ -4,5 +4,8 @@
 #include "weapon.h"
 #include "item.h"
 using namespace std;
-Weapon::Weapon(int damage, string n, int w, int v): damage(damage), Item(name, weight, value){}
+Weapon::Weapon(int damage, std::string name, int weight, int value) :
+    Item(name, weight, value),
+    damage(damage)
+{ }
 

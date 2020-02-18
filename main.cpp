@@ -87,6 +87,7 @@ int main()
 	char ccc;
 	Item MyItem("spada",5,5);
 	Weapon MyWeapon(5,"asd",4,1);
+	
 //
 //	ofstream myfile;
 //	myfile.open ("example.txt",std::ios_base::app);
@@ -109,7 +110,7 @@ int main()
   	
 		gotoxy(previosCursorX,previosCursorY);
 	//	Sleep(500);
-		wasdkeyChar=getch();
+		wasdkeyChar=_getch();
 //	
 //		if(wasdkeyChar=='a' || wasdkeyChar=='d' || wasdkeyChar=='w' || wasdkeyChar=='s')
 //		{

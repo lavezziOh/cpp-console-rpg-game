@@ -5,9 +5,8 @@ class Weapon : public Item
 {
 public:
   int damage;
-  Weapon();
-   
-	Weapon(int damage, string n, int w, int v);
+
+	 Weapon(int damage, std::string name, int weight, int value);
 
 };
 

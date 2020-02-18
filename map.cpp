@@ -7,7 +7,7 @@
 #include <time.h> 
 #include "map.h" 
 
-void Map::CreateMap(int tilesX, int tilesY)
+void Map::CreateMap( int tilesX,  int tilesY)
 {
 	std::string x[tilesX][tilesY];
 	int t=0;

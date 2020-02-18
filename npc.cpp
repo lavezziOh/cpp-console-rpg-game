@@ -32,6 +32,7 @@ void Npc::showHeroPos(int x,int y)
 bool Npc::isInCombat(std::vector<Creature>& mobs)
 {
 	showHeroPos(60,0);
+	std::string isdead;
 	int newY;
 	for (int i=0;i<10;i++)
 	{
@@ -39,7 +40,7 @@ bool Npc::isInCombat(std::vector<Creature>& mobs)
 		coord.X = 60;
 		newY=i+1;
 		coord.Y = newY;
-		std::string isdead;
+		
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),LIGHTCYAN);
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 		if(mobs[i].isAlive==false)
